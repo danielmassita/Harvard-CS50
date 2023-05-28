@@ -295,5 +295,9 @@ if favorite in counts:
 
 
 """
+Relational Databases
+Google, Twitter, and Meta all use relational databases to store their information at scale.
+Relational databases store data in rows and columns in structures called tables.
+SQL allows for four types of commands:
 
 """

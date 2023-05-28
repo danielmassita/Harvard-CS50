@@ -299,5 +299,25 @@ Relational Databases
 Google, Twitter, and Meta all use relational databases to store their information at scale.
 Relational databases store data in rows and columns in structures called tables.
 SQL allows for four types of commands:
-
+  Create
+  Read
+  Update
+  Delete
+These four operations are affectionately called CRUD.
+We can create a SQL database at the terminal by typing sqlite3 favorites.db. Upon being prompted, we will agree that we want to create favorites.db by pressing y.
+You will notice a different prompt as we are now inside a program called sqlite3.
+We can put sqlite3 into csv mode by typing .mode csv. Then, we can import our data from our csv file by typing .import favorites.csv favorites. It seems that nothing has happened!
+We can type .schema to see the structure of the database.
+You can read items from a table using the syntax SELECT columns FROM table.
+For example, you can type SELECT * FROM favorites; which will iterate every row in favorites.
+You can get a subset of the data using the command SELECT language FROM favorites;.
+SQL supports many commands to access data, including:
+  AVG
+  COUNT
+  DISTINCT
+  LOWER
+  MAX
+  MIN
+  UPPER
+For example, you can type SELECT COUNT(language) FROM favorites;. Further, you can type SELECT DISTINCT(language) FROM favorites; to get a list of the individual languages within the database. You could even type SELECT COUNT(DISTINCT(language)) FROM favorites; to get a count of those.
 """

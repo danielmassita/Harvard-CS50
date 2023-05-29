@@ -317,8 +317,10 @@ Are you sure you want to create favorites.db? [y/N] y
 sqlite> .mode csv
 sqlite> .import favorites.csv favorites
 sqlite> .schema 
-CREATE TABLE IF NOT EXISTS "favorites"(
-"Timestamp" TEXT, "language" TEXT, "problem" TEXT);
+CREATE TABLE IF NOT EXISTS "favorites"("Timestamp" TEXT, "language" TEXT, "problem" TEXT);
+
+$ sqlite3 favorites.db # re-abrir o CLI fora do sqlite> e abrir o arquivo .db que já criamos, pra ver de forma diferente as tabelas...
+
 sqlite> SELECT * FROM favorites;
 sqlite> SELECT language FROM favorites;
 sqlite> SELECT Timestamp FROM favorites;
@@ -338,6 +340,29 @@ SQL supports many commands to access data, including:
   UPPER
 For example, you can type SELECT COUNT(language) FROM favorites;. Further, you can type SELECT DISTINCT(language) FROM favorites; to get a list of the individual languages within the database. You could even type SELECT COUNT(DISTINCT(language)) FROM favorites; to get a count of those.
 """
+sqlite> SELECT COUNT(*) FROM favorites WHERE language = 'C';
+sqlite> SELECT COUNT(*) FROM favorites;
+sqlite> SELECT COUNT(*) FROM favorites WHERE language = 'C' AND problem = 'Mario';
+
+sqlite> SELECT language, COUNT(*) FROM favorites GROUP BY language;
+sqlite> SELECT language, COUNT(*) FROM favorites GROUP BY language ORDER BY COUNT(*);
+sqlite> SELECT language, COUNT(*) FROM favorites GROUP BY language ORDER BY COUNT(*) ASC;
+sqlite> SELECT language, COUNT(*) FROM favorites GROUP BY language ORDER BY COUNT(*) DESC;
+sqlite> SELECT language, COUNT(*) FROM favorites GROUP BY language ORDER BY COUNT(*) DESC LIMIT 1;
+
+sqlite> SELECT DISTINCT(language) FROM favorites;
+sqlite> INSERT INTO favorites (language, problem) VALUES ('SQL', 'Fiftyville');
+sqlite> SELECT DISTINCT(language) FROM favorites;
+
+sqlite> SELECT * FROM favorites WHERE language = 'C';
+sqlite> UPDATE favorites SET language = 'C++' WHERE language = 'C';
+sqlite> SELECT * FROM favorites WHERE language = 'C';
+sqlite> SELECT * FROM favorites WHERE language = 'C++';
+
+sqlite> UPDATE favorites SET language = 'C' WHERE language = 'C++';
+sqlite> SELECT * FROM favorites WHERE language = 'C++';
+sqlite> SELECT * FROM favorites WHERE language = 'C';
+
 # Searches database popularity of a problem
 
 import csv

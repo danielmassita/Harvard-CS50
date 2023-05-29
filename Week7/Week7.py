@@ -321,3 +321,41 @@ SQL supports many commands to access data, including:
   UPPER
 For example, you can type SELECT COUNT(language) FROM favorites;. Further, you can type SELECT DISTINCT(language) FROM favorites; to get a list of the individual languages within the database. You could even type SELECT COUNT(DISTINCT(language)) FROM favorites; to get a count of those.
 """
+# Searches database popularity of a problem
+
+import csv
+from cs50 import SQL
+
+# Open database
+db = SQL("sqlite:///favorites.db")
+
+# Prompt user for favorite
+favorite = input("Favorite: ")
+
+# Search for title
+rows = db.execute("SELECT COUNT(*) FROM favorites WHERE problem LIKE ?", "%" + favorite + "%")
+
+# Get first (and only) row
+row = rows[0]
+
+# Print popularity
+print(row["COUNT(*)"])
+"""
+SQL offers additional commands we can utilize in our queries:
+  WHERE       -- adding a Boolean expression to filter our data
+  LIKE        -- filtering responses more loosely
+  ORDER BY    -- ordering responses
+  LIMIT       -- limiting the number of responses
+  GROUP BY    -- grouping responses together
+Notice that we use -- to write a comment in SQL.
+For example, we can execute SELECT COUNT(*) FROM favorites WHERE language = 'C';. A count is presented.
+Further, we could type SELECT COUNT(*) FROM favorites WHERE language = 'C' AND problem = 'Mario';. Notice how the AND is utilized to narrow our results.
+Similarly, we could execute SELECT language, COUNT(*) FROM favorites GROUP BY language;. This would offer a temporary table that would show the language and count.
+We could improve this by typing SELECT language, COUNT(*) FROM favorites GROUP BY language ORDER BY COUNT(*);. This will order the resulting table by the count.
+We can also INSERT into a SQL database utilizing the form INSERT INTO table (column...) VALUES(value, ...);.
+We can execute INSERT INTO favorites (language, problem) VALUES ('SQL', 'Fiftyville');.
+We can also utilize the UPDATE command to update your data.
+For example, you can execute UPDATE favorites SET language = 'C++' WHERE language = 'C';. This will result in overwriting all previous statements where C was the favorite programming language.
+Notice that these queries have immense power. Accordingly, in the real-world setting, you should consider who has permissions to execute certain commands.
+DELETE allows you to delete parts of your data. For example, you could DELETE FROM favorites WHERE problem = 'Tideman';.
+"""

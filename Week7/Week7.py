@@ -329,6 +329,7 @@ sqlite> SELECT COUNT(language) FROM favorites;
 sqlite> SELECT DISTINCT(language) FROM favorites;
 sqlite> SELECT COUNT(DISTINCT(language)) FROM favorites;
 sqlite> 
+
 """
 SQL supports many commands to access data, including:
   AVG
@@ -340,6 +341,7 @@ SQL supports many commands to access data, including:
   UPPER
 For example, you can type SELECT COUNT(language) FROM favorites;. Further, you can type SELECT DISTINCT(language) FROM favorites; to get a list of the individual languages within the database. You could even type SELECT COUNT(DISTINCT(language)) FROM favorites; to get a count of those.
 """
+
 sqlite> SELECT COUNT(*) FROM favorites WHERE language = 'C';
 sqlite> SELECT COUNT(*) FROM favorites;
 sqlite> SELECT COUNT(*) FROM favorites WHERE language = 'C' AND problem = 'Mario';
@@ -365,13 +367,16 @@ sqlite> SELECT * FROM favorites WHERE language = 'C';
 
 sqlite> DELETE FROM favorites WHERE problem = 'Tideman'; # Delete every entry from table with 'Tideman' as problem, including del of time and language...
 sqlite> DELETE FROM favorites; # Delete everything from the table... XD lol...
+
 """
 SQL offers additional commands we can utilize in our queries:
+
   WHERE       -- adding a Boolean expression to filter our data
   LIKE        -- filtering responses more loosely
   ORDER BY    -- ordering responses
   LIMIT       -- limiting the number of responses
   GROUP BY    -- grouping responses together
+
 Notice that we use -- to write a comment in SQL.
 For example, we can execute SELECT COUNT(*) FROM favorites WHERE language = 'C';. A count is presented.
 Further, we could type SELECT COUNT(*) FROM favorites WHERE language = 'C' AND problem = 'Mario';. Notice how the AND is utilized to narrow our results.

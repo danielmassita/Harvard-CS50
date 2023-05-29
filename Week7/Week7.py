@@ -308,6 +308,9 @@ We can create a SQL database at the terminal by typing sqlite3 favorites.db. Upo
 You will notice a different prompt as we are now inside a program called sqlite3.
 We can put sqlite3 into csv mode by typing .mode csv. Then, we can import our data from our csv file by typing .import favorites.csv favorites. It seems that nothing has happened!
 We can type .schema to see the structure of the database.
+You can read items from a table using the syntax SELECT columns FROM table.
+For example, you can type SELECT * FROM favorites; which will iterate every row in favorites.
+You can get a subset of the data using the command SELECT language FROM favorites;.
 """
 $ sqlite3 favorites.db
 Are you sure you want to create favorites.db? [y/N] y
@@ -316,11 +319,15 @@ sqlite> .import favorites.csv favorites
 sqlite> .schema 
 CREATE TABLE IF NOT EXISTS "favorites"(
 "Timestamp" TEXT, "language" TEXT, "problem" TEXT);
-sqlite>
+sqlite> SELECT * FROM favorites;
+sqlite> SELECT language FROM favorites;
+sqlite> SELECT Timestamp FROM favorites;
+sqlite> SELECT COUNT(*) FROM favorites;
+sqlite> SELECT COUNT(language) FROM favorites;
+sqlite> SELECT DISTINCT(language) FROM favorites;
+sqlite> SELECT COUNT(DISTINCT(language)) FROM favorites;
+sqlite> 
 """
-You can read items from a table using the syntax SELECT columns FROM table.
-For example, you can type SELECT * FROM favorites; which will iterate every row in favorites.
-You can get a subset of the data using the command SELECT language FROM favorites;.
 SQL supports many commands to access data, including:
   AVG
   COUNT

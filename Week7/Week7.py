@@ -430,7 +430,8 @@ To illustrate the relationship between these tables further, we could execute th
 We can further play with this data to understand these relationships. Execute SELECT * FROM genres;. There are a lot of genres!
 We can further limit this data down by executing SELECT * FROM genres WHERE genre = 'Comedy' LIMIT 10;. From this query, you can see that there are 10 shows presented.
 You can discover what shows these are by executing SELECT * FROM shows WHERE id = 626124;
-We can further our query to be more efficient by executing"""
+We can further our query to be more efficient by executing
+"""
 
         SELECT title
         FROM shows
@@ -460,9 +461,3 @@ We can further our query to be more efficient by executing"""
             (SELECT * FROM people WHERE name = 'Steve Carell'));
 
 # Notice that this lengthy query will result in a final result that is useful in discovering the answer to our question.
-
-        
-        
-"""
-
-"""

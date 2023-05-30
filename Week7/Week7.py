@@ -697,4 +697,66 @@ To assist in working with SQL in this course, the CS50 Library can be utilized a
         print(row["COUNT(*)"])
         
 # Notice that db = SQL("sqlite:///favorites.db") provide Python the location of the database file. Then, the line that begins with rows executes SQL commands utilizing db.execute. Indeed, this command passes the syntax within the quotation marks to the db.execute function. We can issue any SQL command using this syntax. Further, notice that rows is returned as a list of dictionaries. In this case, there is only one result, one row, returned to the rows list as a dictionary.
+
+        from cs50 import SQL
+        db = SQL("sqlite:///favorites.db")
+
+        favorite = input("Favorite: ")
+
+        # rows = db.execute("SELECT * FROM favorites WHERE problem = 'Mario'")
+        rows = db.execute("SELECT COUNT(*) AS n FROM favorites WHERE problem = 'Mario'") # This is hardcoded, Mario are always hardcoded despite the input from user being 'Mario' or not...
+        # rows = db.execute(f"SELECT COUNT(*) AS n FROM favorites WHERE problem = {favorite}", favorite) # <<< THIS IS FRAGILE FOR HACKING PURPOSES! AVOID AT ALL!!!!
+        rows = db.execute("SELECT COUNT(*) AS n FROM favorites WHERE problem = ?", favorite) # Now, we assign the answer to the input...
+
+        #for row in rows:
+        #    print(row["Timestamp"])
+        #    print(row["n"])
+
+        row = rows[0]
+        print(rows[0]["n"])
+
+
+        
+"""
+Race Conditions
+Utilization of SQL can sometimes result in some problems.
+You can imagine a case where multiple users could be accessing the same database and executing commands at the same time.
+This could result in glitches where code is interrupted by other people’s actions. This could result in a loss of data.
+Built-in SQL features such as BEGIN TRANSACTION, COMMIT, and ROLLBACK help avoid some of these race condition problems.
+"""
+
+
+
+"""
+SQL Injection Attacks
+Now, still considering the code above, you might be wondering what the ? question marks do above. One of the problems that can arise in real-world applications of SQL is what is called an injection attack. An injection attack is where a malicious actor could input malicious SQL code.
+For example, consider a login screen as follows:
+
+        https://cs50.harvard.edu/x/2023/notes/7/cs50Week7Slide051.png
+        harvard key login screen with username and password fields
+
+Without the proper protections in our own code, a bad actor could run malicious code. Consider the following:"""
+
+rows = db.execute("SELECT COUNT(*) FROM favorites WHERE problem LIKE ?", "%" + favorite + "%")
+
+# Notice that because the ? is in place, validation can be run on favorite before it is blindly accepted by the query.
+# You never want to utilize formatted strings in queries as above or blindly trust the user’s input.
+# Utilizing the CS50 Library, the library will sanitize and remove any potentially malicious characters.
+ 
+
+
+
+"""
+Summing Up
+In this lesson, you learned more syntax related to Python. Further, you learned how to integrate this knowledge with data in the form of flat-file and relational databases. Finally, you learned about SQL. Specifically, we discussed…
+
+Flat-file databases
+Relational databases
+SQL
+JOINs
+Indexes
+Using SQL in Python
+Race conditions
+SQL injection attacks
+See you next time!
 """

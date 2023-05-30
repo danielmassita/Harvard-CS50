@@ -546,3 +546,155 @@ sqlite> SELECT title FROM shows WHERE id IN (SELECT show_id FROM stars WHERE per
         (SELECT * FROM people WHERE name = 'Steve Carell'));
 
 # Notice that this lengthy query will result in a final result that is useful in discovering the answer to our question.
+
+
+
+
+"""
+JOINs
+Consider the following two tables:
+
+    https://cs50.harvard.edu/x/2023/notes/7/cs50Week7Slide030.png
+    two boxes representing the shows and genres table with an arrow connecting id and show id
+
+How could we combine tables temporarily? Tables could be joined together using the JOIN command.
+"""
+sqlite> SELECT * FROM shows LIMIT 10;
+sqlite> SELECT * FROM genres LIMIT 10;
+sqlite> SELECT * FROM shows JOIN genres ON shows.id = genres.show_id;
+sqlite> SELECT * FROM shows JOIN genres ON shows.id = genres.show_id LIMIT 10;
+sqlite> SELECT * FROM shows JOIN genres ON shows.id = genres.show_id WHERE title = 'The Office';
+sqlite> SELECT * FROM shows JOIN ratings ON shows.id = ratings.show_id WHERE title = 'The Office';
+
+sqlite> SELECT title FROM people
+   ...> JOIN stars ON people.id = stars.person_id
+   ...> JOIN shows ON stars.show_id = shows.id
+   ...> WHERE name = 'Steve Carell';
+    
+sqlite> SELECT title FROM people, stars, shows
+   ...> WHERE people.id = stars.person_id
+   ...> AND stars.show_id = shows.id
+   ...> AND name = 'Steve Carell';
+    
+sqlite> SELECT * FROM people WHERE name = 'Steve Carell';
+sqlite> SELECT * FROM people WHERE name = 'Steve';
+sqlite> SELECT * FROM people WHERE name LIKE 'Steve C%';
+
+# Execute the following command:
+SELECT * FROM shows
+  JOIN ratings on shows.id = ratings.show_id
+  WHERE title = 'The Office';
+# Now you can see all the shows that have been called The Office.
+# You could similarly apply JOIN to our Steve Carell query above by executing the following:
+SELECT title FROM people
+  JOIN stars ON people.id = stars.person_id
+  JOIN shows ON stars.show_id = shows.id
+  WHERE name = `Steve Carell`;
+# Notice how each JOIN command tells us which columns are aligned to each which other columns.
+# This could be similarly implemented as follows:
+SELECT title FROM people, stars, shows
+WHERE people.id = stars.person_id
+AND stars.show_id = shows.id
+AND name = 'Steve Carell';
+Notice that this achieves the same results.
+# The wildcard % operator can be used to find all people whose names start with Steve C one could employ the syntax SELECT * FROM people WHERE name LIKE 'Steve C%';.
+
+
+
+"""
+Indexes
+While relational databases have the ability to be more fast and more robust than utilizing a CSV file, data can be optimized within a table using indexes.
+Indexes can be utilized to speed up our queries.
+We can track the speed of our queries by executing .timer on in sqlite3.
+To understand how indexes can speed up our queries, run the following: SELECT * FROM shows WHERE title = 'The Office'; Notice the time that displays after the query executes.
+Then, we can create an index with the syntax CREATE INDEX title_index on shows (title);. This tells sqlite3 to create an index and perform some special under-the-hood optimization relating to this column title.
+This will create a data structure called a B Tree, a data structure that looks similar to a binary tree. However, unlike a binary tree, there can be more than two child notes.
+
+    https://cs50.harvard.edu/x/2023/notes/7/cs50Week7Slide039.png
+    one node at the top from which come four children and below that there are three children coming from one of the nodes and two from another two from another and three from another
+
+Running the query SELECT * FROM shows WHERE title = 'The Office';, you will notice that the query runs much more quickly!
+Unfortunately, indexing all columns would result in utilizing more storage space. Therefore, there is a tradeoff for enhanced speed.
+"""
+sqlite> .timer
+Usage: .timer on|off
+sqlite> .timer on
+sqlite> SELECT * FROM shows WHERE title = 'The Office';
+#+----------+------------+------+----------+
+#|    id    |   title    | year | episodes |
+#+----------+------------+------+----------+
+#| 112108   | The Office | 1995 | 6        |
+#| 290978   | The Office | 2001 | 14       |
+#| 386676   | The Office | 2005 | 188      |
+#| 1791001  | The Office | 2010 | 30       |
+#| 2186395  | The Office | 2012 | 8        |
+#| 8305218  | The Office | 2019 | 28       |
+#| 20877972 | The Office | 2022 | 20       |
+#+----------+------------+------+----------+
+#Run Time: real 0.034 user 0.028084 sys 0.004550
+
+sqlite> CREATE INDEX title_index ON shows (title);
+#Run Time: real 0.348 user 0.204060 sys 0.032596                 <<<<<<<<<<<<<< NOTE THE TIME!
+sqlite> SELECT * FROM shows WHERE title = 'The Office';
+#+----------+------------+------+----------+
+#|    id    |   title    | year | episodes |
+#+----------+------------+------+----------+
+#| 112108   | The Office | 1995 | 6        |
+#| 290978   | The Office | 2001 | 14       |
+#| 386676   | The Office | 2005 | 188      |
+#| 1791001  | The Office | 2010 | 30       |
+#| 2186395  | The Office | 2012 | 8        |
+#| 8305218  | The Office | 2019 | 28       |
+#| 20877972 | The Office | 2022 | 20       |
+#+----------+------------+------+----------+
+#Run Time: real 0.001 user 0.000284 sys 0.000123                 <<<<<<<<<<<<<< NOTE THE TIME!
+
+
+
+"""
+Using SQL in Python
+To assist in working with SQL in this course, the CS50 Library can be utilized as follows in your code:
+"""
+        from cs50 import SQL
+# Similar to previous uses of the CS50 Library, this library will assist with the complicated steps of utilizing SQL within your Python code.
+# You can read more about the CS50 Library’s SQL functionality in the documentation.
+# Recall where we last left off in favorites.py. Your code should appear as follows:
+
+        # Favorite problem instead of favorite language
+        import csv
+        # Open CSV file
+        with open("favorites.csv", "r") as file:
+            # Create DictReader
+            reader = csv.DictReader(file)
+            # Counts
+            counts = {}
+            # Iterate over CSV file, counting favorites
+            for row in reader:
+                favorite = row["problem"]
+                if favorite in counts:
+                    counts[favorite] += 1
+                else:
+                    counts[favorite] = 1
+        # Print count
+        favorite = input("Favorite: ")
+        if favorite in counts:
+            print(f"{favorite}: {counts[favorite]}")
+
+# Modify your code as follows:
+
+        # Searches database popularity of a problem
+        import csv
+        from cs50 import SQL
+        # Open database
+        db = SQL("sqlite:///favorites.db")
+        # Prompt user for favorite
+        favorite = input("Favorite: ")
+        # Search for title
+        rows = db.execute("SELECT COUNT(*) FROM favorites WHERE problem LIKE ?", "%" + favorite + "%")
+        # Get first (and only) row
+        row = rows[0]
+        # Print popularity
+        print(row["COUNT(*)"])
+        
+# Notice that db = SQL("sqlite:///favorites.db") provide Python the location of the database file. Then, the line that begins with rows executes SQL commands utilizing db.execute. Indeed, this command passes the syntax within the quotation marks to the db.execute function. We can issue any SQL command using this syntax. Further, notice that rows is returned as a list of dictionaries. In this case, there is only one result, one row, returned to the rows list as a dictionary.
+"""

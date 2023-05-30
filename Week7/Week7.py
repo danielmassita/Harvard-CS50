@@ -416,53 +416,113 @@ IMDb
 IMDb offers a database of people, shows, writers, starts, genres, and ratings. Each of these tables is related to one another as follows:
 
     https://cs50.harvard.edu/x/2023/notes/7/cs50Week7Slide025.png
-
-After downloading shows.db, you can execute sqlite3 shows.db in your terminal window.
-Upon executing .schema you will find not only each of the tables but the individual fields inside each of these fields.
-As you can see by the image above, shows has an id field. The genres table has a show_id field which has data that is common between it and the shows table.
-As you can see also in the image above, show_id exists in all of the tables. In the shows table, it is simply called id. This common field between all the fields is called a key. Primary keys are used to identify a unique record in a table. Foreign keys are used to build relationships between tables by pointing to the primary key in another table.
-By storing data in a relational database, as above, data can be more efficiently stored.
-In sqlite, we have five datatypes, including:
-      BLOB       -- binary large objects that are groups of ones and zeros
-      INTEGER    -- an integer
-      NUMERIC    -- for numbers that are formatted specially like dates
-      REAL       -- like a float
-      TEXT       -- for strings and the like
-Additionally, columns can be set to add special constraints:
-      NOT NULL
-      UNIQUE
-To illustrate the relationship between these tables further, we could execute the following command: SELECT * FROM people LIMIT 10;. Examining the output, we could execute SELECT * FROM shows LIMIT 10;. Further, we could execute SELECT * FROM stars LIMIT 10;. show_id is a foreign key in this final query because show_id corresponds to the unique id field in shows. person_id corresponds to the unique id field in the people column.
-We can further play with this data to understand these relationships. Execute SELECT * FROM genres;. There are a lot of genres!
-We can further limit this data down by executing SELECT * FROM genres WHERE genre = 'Comedy' LIMIT 10;. From this query, you can see that there are 10 shows presented.
-You can discover what shows these are by executing SELECT * FROM shows WHERE id = 626124;
-We can further our query to be more efficient by executing
 """
+# After downloading shows.db, you can execute sqlite3 shows.db in your terminal window.
+Harvard-CS50/Week7/ $ ls
+favorites.csv  favorites.db  favorites.py  shows.db
+Harvard-CS50/Week7/ $ 
+Harvard-CS50/Week7/ $ sqlite3 shows.db
+sqlite> .schema
 
-        SELECT title
-        FROM shows
-        WHERE id IN (
-            SELECT show_id
-            FROM genres
-            WHERE genre = 'Comedy'
-        )
-        LIMIT 10;
+CREATE TABLE genres (
+    show_id INTEGER NOT NULL,
+    genre TEXT NOT NULL,
+    FOREIGN KEY(show_id) REFERENCES shows(id)
+);
+CREATE TABLE people (
+    id INTEGER,
+    name TEXT NOT NULL,
+    birth NUMERIC,
+    PRIMARY KEY(id)
+);
+CREATE TABLE ratings (
+    show_id INTEGER NOT NULL,
+    rating REAL NOT NULL,
+    votes INTEGER NOT NULL,
+    FOREIGN KEY(show_id) REFERENCES shows(id)
+);
+CREATE TABLE shows (
+    id INTEGER,
+    title TEXT NOT NULL,
+    year NUMERIC,
+    episodes INTEGER,
+    PRIMARY KEY(id)
+);
+CREATE TABLE stars (
+    show_id INTEGER NOT NULL,
+    person_id INTEGER NOT NULL,
+    FOREIGN KEY(show_id) REFERENCES shows(id),
+    FOREIGN KEY(person_id) REFERENCES people(id)
+);
+CREATE TABLE writers (
+    show_id INTEGER NOT NULL,
+    person_id INTEGER NOT NULL,
+    FOREIGN KEY(show_id) REFERENCES shows(id),
+    FOREIGN KEY(person_id) REFERENCES people(id)
+);
+# Upon executing .schema you will find not only each of the tables but the individual fields inside each of these fields.
+
+# As you can see by the image above, shows has an id field. The genres table has a show_id field which has data that is common between it and the shows table.
+# As you can see also in the image above, show_id exists in all of the tables. In the shows table, it is simply called id. This common field between all the fields is called a key. Primary keys are used to identify a unique record in a table. Foreign keys are used to build relationships between tables by pointing to the primary key in another table.
+# By storing data in a relational database, as above, data can be more efficiently stored.
+# In sqlite, we have five datatypes, including:
+#      BLOB       -- binary large objects that are groups of ones and zeros
+#      INTEGER    -- an integer
+#      NUMERIC    -- for numbers that are formatted specially like dates
+#      REAL       -- like a float
+#      TEXT       -- for strings and the like
+# Additionally, columns can be set to add special constraints:
+#      NOT NULL     -- may or may not let NULL (blank values) in a column, like 'Timestamp' lacking data in INSERT TO above 'SQL', 'Fiftyville'.
+#      UNIQUE       -- unique number that can not have two versions of, like CPF, email, social security number...
+# To illustrate the relationship between these tables further, we could execute the following command: SELECT * FROM people LIMIT 10;. Examining the output, we could execute SELECT * FROM shows LIMIT 10;. Further, we could execute SELECT * FROM stars LIMIT 10;. show_id is a foreign key in this final query because show_id corresponds to the unique id field in shows. person_id corresponds to the unique id field in the people column.
+
+sqlite> SELECT * FROM people;
+sqlite> SELECT * FROM people LIMIT 10; 
+sqlite> SELECT * FROM shows LIMIT 10; 
+sqlite> SELECT * FROM stars LIMIT 10;
+
+sqlite> SELECT * FROM genres LIMIT 10;
+sqlite> SELECT * FROM genres WHERE genre = 'Comedy' LIMIT 10;
+sqlite> SELECT * FROM shows WHERE id = 62614;
+sqlite> SELECT * FROM shows WHERE id = 63881;
+sqlite> SELECT * FROM shows WHERE id = 65270;
+
+sqlite> SELECT show_id FROM genres WHERE genre = 'Comedy';
+sqlite> SELECT COUNT(show_id) FROM genres WHERE genre = 'Comedy';
+sqlite> SELECT title FROM shows WHERE id IN (SELECT show_id FROM genres WHERE genre = 'Comedy');
+sqlite> SELECT title FROM shows WHERE id IN (SELECT show_id FROM genres WHERE genre = 'Comedy') LIMIT 10;
+sqlite> SELECT title FROM shows WHERE id IN (SELECT show_id FROM genres WHERE genre = 'Comedy') ORDER BY title LIMIT 10;
+
+# We can further play with this data to understand these relationships. Execute SELECT * FROM genres;. There are a lot of genres!
+# We can further limit this data down by executing SELECT * FROM genres WHERE genre = 'Comedy' LIMIT 10;. From this query, you can see that there are 10 shows presented.
+# You can discover what shows these are by executing SELECT * FROM shows WHERE id = 626124;
+# We can further our query to be more efficient by executing
+
+    SELECT title
+    FROM shows
+    WHERE id IN (
+        SELECT show_id
+        FROM genres
+        WHERE genre = 'Comedy'
+    )
+    LIMIT 10;
 
 # Notice that this query nests together two queries. An inner query is used by an outer query.
 # We can refine further by executing
 
-        SELECT title
-        FROM shows
-        WHERE id IN (
-            SELECT show_id
-            FROM genres
-            WHERE genre = 'Comedy'
-        )
-        ORDER BY title LIMIT 10;
+    SELECT title
+    FROM shows
+    WHERE id IN (
+        SELECT show_id
+        FROM genres
+        WHERE genre = 'Comedy'
+    )
+    ORDER BY title LIMIT 10;
 
 # What if you wanted to find all shows in which Steve Carell stars? You could execute SELECT * FROM people WHERE name = 'Steve Carell'; You would find his individual id. You could utilize this id to locate many shows in which he appears. However, this would be tedious to attempt this one by one. How could we next our queries to make this more streamlined? Consider the following:
 
-        SELECT title FROM shows WHERE id IN
-          (SELECT show_id FROM stars WHERE person_id =
-            (SELECT * FROM people WHERE name = 'Steve Carell'));
+    SELECT title FROM shows WHERE id IN
+      (SELECT show_id FROM stars WHERE person_id =
+        (SELECT * FROM people WHERE name = 'Steve Carell'));
 
 # Notice that this lengthy query will result in a final result that is useful in discovering the answer to our question.

@@ -495,6 +495,26 @@ sqlite> SELECT title FROM shows WHERE id IN (SELECT show_id FROM genres WHERE ge
 
 # We can further play with this data to understand these relationships. Execute SELECT * FROM genres;. There are a lot of genres!
 # We can further limit this data down by executing SELECT * FROM genres WHERE genre = 'Comedy' LIMIT 10;. From this query, you can see that there are 10 shows presented.
+
+sqlite> SELECT * FROM people WHERE name = 'Steve Carell';
+SELECT * FROstars WHERE person_id = 136797; 
+#+----------+-----------+
+#| show_id  | person_id |
+#+----------+-----------+
+#| 115148   | 136797    |
+#| 118420   | 136797    |
+#| 306410   | 136797    |
+#| 381741   | 136797    |
+
+sqlite> SELECT title FROM shows WHERE id = 115148;
+sqlite> SELECT title FROM shows WHERE id = 118420;
+sqlite> SELECT * FROM people WHERE name = 'Steve Carell';
+sqlite> SELECT id FROM people WHERE name = 'Steve Carell';
+sqlite> SELECT * FROM stars WHERE person_id = (SELECT id FROM people WHERE name = 'Steve Carell');
+sqlite> SELECT show_id FROM stars WHERE person_id = (SELECT id FROM people WHERE name = 'Steve Carell');
+sqlite> SELECT title FROM shows WHERE id IN (SELECT show_id FROM stars WHERE person_id = (SELECT id FROM people WHERE name = 'Steve Carell'));
+sqlite> SELECT title FROM shows WHERE id IN (SELECT show_id FROM stars WHERE person_id = (SELECT id FROM people WHERE name = 'Steve Carell')) ORDER BY title;
+
 # You can discover what shows these are by executing SELECT * FROM shows WHERE id = 626124;
 # We can further our query to be more efficient by executing
 

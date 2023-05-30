@@ -724,7 +724,16 @@ You can imagine a case where multiple users could be accessing the same database
 This could result in glitches where code is interrupted by other people’s actions. This could result in a loss of data.
 Built-in SQL features such as BEGIN TRANSACTION, COMMIT, and ROLLBACK help avoid some of these race condition problems.
 """
+rows = db.execute("SELECT likes FROM posts WHERE id = ?", id);
+likes = rows[0]["likes"]
+db.execute("UPDATE posts SET likes = ? WHERE id = ?", likes + 1, id);
 
+db.execute("BEGIN TRANSACTION")
+rows = db.execute("SELECT likes FROM posts WHERE id = ?", id);
+likes = rows[0]["likes"]
+db.execute("UPDATE posts SET likes = ? WHERE id = ?", likes + 1, id);
+db.execute("COMMIT")
+# Now the query statement is atomic. Either ALL executed or NOT AT ALL. 
 
 
 """

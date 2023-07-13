@@ -151,6 +151,85 @@ Computers use ‘base-2’ to count. This can be pictured as follows:
 - Music can be represented through MIDI data.
 
 
+## Algorithms
+
+- Problem-solving is central to computer science and computer programming.
+- Imagine the basic problem of trying to locate a single name in a phone book.
+- How might you go about this?
+- One approach could be to simply read from page one to the next to the next until reaching the last page.
+- Another approach could be to search two pages at a time.
+- A final and perhaps better approach could be to go to the middle of the phone book and ask, “Is the name I am looking for to the left or to the right?” Then, repeat this process, cutting the problem in half and half and half.
+- Each of these approaches could be called algorithms. The speed of each of these algorithms can be pictured as follows in what is called big-O notation:
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/b6e25200-952f-457a-84e2-fbede9df3a2e)
+- Notice that the first algorithm, highlighted in red, has a big-O of n because if there are 100 names in the phone book, it could take up to 100 tries to find the correct name. The second algorithm, where two pages were searched at a time, has a big-O of ‘n/2’ because we searched twice as fast through the pages. The final algorithm has a big-O of log2n as doubling the problem would only result in one more step to solve the problem.
+  
+
+## Pseudocode and the Basic Building Blocks of Programming
+
+- The ability to create pseudocode is central to one’s success in both this class and in computer programming.
+- Pseudocode is a human-readable version of your code. For example, considering the third algorithm above, we could compose pseudocode as follows:
+```
+  1  Pick up phone book
+  2  Open to middle of phone book
+  3  Look at page
+  4  If person is on page
+  5      Call person
+  6  Else if person is earlier in book
+  7      Open to middle of left half of book
+  8      Go back to line 3
+  9  Else if person is later in book
+  10     Open to middle of right half of book
+  11     Go back to line 3
+  12 Else
+  13     Quit
+```
+- Pseudocoding is such an important skill for at least two reasons. First, when you pseudocode before you create formal code, it allows you to think through the logic of your problem in advance. Second, when you pseudocode, you can later provide this information to others that are seeking to understand your coding decisions and how your code works.
+- Notice that the language within our pseudocode has some unique features. First, some of these lines begin with verbs like pick up, open, look at. Later, we will call these functions.
+- Second, notice that some lines include statements like if or else if. These are called conditionals.
+- Third, notice how there are expressions that can be stated as true or false, such as “person is earlier in the book.” We call these boolean expressions.
+- Finally, notice how these statements like “go back to line 3.” We call these loops.
+- In the context of Scratch, which is discussed below, we will use each of the above basic building blocks of programming.
+
+
+## Scratch
+
+- Scratch is a visual programming language developed by MIT.
+- Scratch utilizes the same essential coding building blocks that we covered earlier in this lecture.
+- Scatch is a great way to get into computer programming because it allows you to play with these building blocks in a visual manner, not having to be concerned about the syntax of curly braces, semicolons, parentheses, and the like.
+- Scatch IDE (integrated development environment) looks like the following:
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/15804f96-07b3-49c0-a9b4-5a94486a06f2)
+- Notice that on the left, there are building blocks that you can use in your programming. To the immediate right of the building blocks, there is the area to which you can drag blocks to build a program. To the right of that, you see the stage where a cat stands. The stage is where your programming comes to life.
+- Scratch operates on a coordinate system as follows:
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/ad95b210-6370-4b36-ae54-09c615378976)
+- Notice that the center of the stage is at coordinate (0,0). Right now, the cat’s position is at that same position.
+- To begin, drag the “when green flag clicked” building block to the programming area. Then, drag the say building block to the programming area and attach it to the previous block.
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/12602673-bd1f-4126-8223-05466c243fe8)
+- Notice that when you click the green flag now, on the stage, the cat says, “hello world.”
+- This illustrates quite well what we were discussing earlier regarding programming:
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/cf615c32-6624-4df6-9ca1-6eede2219ea9)
+- Notice that the input hello world is passed to the function say, and the side effect of that function running is the cat saying hello world.
+- We can make your program more interactive by having the cat say hello to someone specific. Modify your program as below:
+- s![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/19399340-1ece-4ec5-a0a0-1e1bf40a5712)
+- Notice that when the green flag is clicked, the function ask is run. The program prompts you, the user, What's your name? It then stores that name in the variable called answer. The program then passes answer to a special function called join, which combines two strings of text hello, and whatever name was provided. These collectively are passed to the say function. The cat says, Hello, and a name. Your program is now interactive.
+- Quite similarly, we can modify our program as follows:
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/e81b7b19-d456-4d0b-a3c7-22e397ed9134)
+- Notice that this program, when the green flag is clicked, passes the same variable, joined with hello, to a function called speak.
+
+
+## Abstraction
+
+- Along with pseudocoding, abstraction is an essential skill and concept within computer programming.
+- Abstraction is the act of simplifying a problem into smaller and smaller problems.
+- For example, if you were hosting a huge dinner for your friends, the problem of having to cook the entire meal could be quite overwhelming! However, if you break down the task of cooking the meal into smaller and smaller tasks (or problems), the big task of creating this delicious meal might feel less challenging.
+- In programming, and even within Scratch, we can see abstraction in action. In your programming area, program as follows:
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/d73c1308-b831-4675-8128-dcc5740d7018)
+- Notice that you are doing the same thing over and over again. Indeed, if you see yourself repeatedly coding the same statements, it’s likely the case that you could program more artfully – abstracting away this repetitive code.
+- You can modify your code as follows:
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/159fbb53-f34c-4229-a8e2-f3e28731fdd0)
+- 
+
+
+
 
 
 

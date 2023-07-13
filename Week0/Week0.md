@@ -318,7 +318,6 @@ ___
 ## TRANSCRIPTION
 
 ```
-TRANSCRIPTION
 [MUSIC PLAYING] DAVID J. MALAN: All right. This is CS50, Harvard University's introduction to the intellectual enterprises of computer science and the arts of programming. My name is David Malan, and I actually took this course myself, back in 1996. I was a sophomore at the time. I was actually concentrating in government, because a year prior, as a first year, I'd come into Harvard thinking that I liked history and constitutional law and similar classes in high school. And so when I got here, I rather gravitated toward that which was familiar. I figured, if I liked and if I were good at that particular subject in high school, then that's presumably who I'm supposed to be here. 
 
 But it wasn't until sophomore year that I got up the nerve to step foot in the CS50 classroom, and even then, it was only out of curiosity. Like I had no intention of studying computer science of even taking CS50 when I got to campus. But people were talking about it, and there was a lot of beware. And it was perhaps for the initiated only, and I didn't really ultimately what computer science was. 

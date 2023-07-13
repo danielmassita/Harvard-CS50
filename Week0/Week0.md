@@ -129,7 +129,7 @@ Computers use ‘base-2’ to count. This can be pictured as follows:
 - As time has rolled on, there are more and more ways to communicate via text.
 - Since there were not enough digits in binary to represent all the various characters that could be represented by humans, the Unicode standard expanded the number of bits that can be transmitted and understood by computers.
 - There are emojis that you probably use every day. The following may look familiar to you:
-![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/b3131c7d-be92-4628-b883-8c1c1857593a)
+![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/1d83dfe7-6989-4683-a2ca-49d2341edb36)
 - Computer scientists faced a challenge when wanting to assign various skin tones to each emoji to allow the communication to be further personalized. In this case, the creators and contributors of emojis decided that the initial bits would be the structure of the emoji itself, followed by skin tone.
 - More and more features are being added to the Unicode standard to represent further characters and emojis.
 - If you wish, you can learn more about Unicode.
@@ -139,9 +139,9 @@ Computers use ‘base-2’ to count. This can be pictured as follows:
 ## RGB
 
 - Red, green, and blue (called RGB) is a combination of three numbers.
-![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/5fc6cf7d-ae52-4855-8b1a-dcb3e6ddf425)
+![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/b3131c7d-be92-4628-b883-8c1c1857593a)
 - Taking our previously used 72, 73, and 33, which said HI! via text, would be interpreted by image readers as a light shade of yellow. The red value would be 72, the green value would be 73, and the blue would be 33.
-![Uploading image.png…]()
+![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/5fc6cf7d-ae52-4855-8b1a-dcb3e6ddf425)
 
 
 ## Images, Video and Sound

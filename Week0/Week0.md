@@ -316,8 +316,7 @@ Computers use ‘base-2’ to count. This can be pictured as follows:
 
 
 
-
-"""
+```
 TRANSCRIPTION
 [MUSIC PLAYING] DAVID J. MALAN: All right. This is CS50, Harvard University's introduction to the intellectual enterprises of computer science and the arts of programming. My name is David Malan, and I actually took this course myself, back in 1996. I was a sophomore at the time. I was actually concentrating in government, because a year prior, as a first year, I'd come into Harvard thinking that I liked history and constitutional law and similar classes in high school. And so when I got here, I rather gravitated toward that which was familiar. I figured, if I liked and if I were good at that particular subject in high school, then that's presumably who I'm supposed to be here. 
 
@@ -1260,4 +1259,4 @@ Congrats. All right, that's it for CS50. Welcome. Cake is now served. We'll see 
 [MUSIC PLAYING] 
 
 
-"""
+```

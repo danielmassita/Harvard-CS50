@@ -67,7 +67,7 @@ https://www.youtube.com/live/IDDmrzzB14M
 ## Computational Thinking
 
 - Essentially, computer programming is about taking some input and creating some output - thus solving a problem. What happens in between the input and output, what we could call a black box, is the focus of this course.
-![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/9ac704ab-d794-4ab6-bf79-f2abf5a0bc20)
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/9ac704ab-d794-4ab6-bf79-f2abf5a0bc20)
 - For example, we may need to take attendance for a class. We could use a system called unary to count, one finger at a time. Computers today count using a system called binary. It’s from the term binary digit that we get a familiar term called bit. A bit is a zero or one.
 - Computers only speak in terms of zeros and ones. Zeros represent off. Ones represent on. Computers are millions, and perhaps billions, of transistors that are being turned on and off.
 - If you imagine using a light bulb, a single bulb can only count from zero to one.
@@ -121,7 +121,7 @@ Computers use ‘base-2’ to count. This can be pictured as follows:
 ```
 - Thank goodness for standards like ASCII that allow us to agree upon these values!
 - Here is an expanded map of ASCII values:
-![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/c9ad2247-cec8-42b3-a3c8-6c4a408972a4)
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/c9ad2247-cec8-42b3-a3c8-6c4a408972a4)
 
 
 ## Emojis
@@ -129,7 +129,7 @@ Computers use ‘base-2’ to count. This can be pictured as follows:
 - As time has rolled on, there are more and more ways to communicate via text.
 - Since there were not enough digits in binary to represent all the various characters that could be represented by humans, the Unicode standard expanded the number of bits that can be transmitted and understood by computers.
 - There are emojis that you probably use every day. The following may look familiar to you:
-![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/1d83dfe7-6989-4683-a2ca-49d2341edb36)
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/1d83dfe7-6989-4683-a2ca-49d2341edb36)
 - Computer scientists faced a challenge when wanting to assign various skin tones to each emoji to allow the communication to be further personalized. In this case, the creators and contributors of emojis decided that the initial bits would be the structure of the emoji itself, followed by skin tone.
 - More and more features are being added to the Unicode standard to represent further characters and emojis.
 - If you wish, you can learn more about Unicode.
@@ -139,9 +139,9 @@ Computers use ‘base-2’ to count. This can be pictured as follows:
 ## RGB
 
 - Red, green, and blue (called RGB) is a combination of three numbers.
-![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/b3131c7d-be92-4628-b883-8c1c1857593a)
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/b3131c7d-be92-4628-b883-8c1c1857593a)
 - Taking our previously used 72, 73, and 33, which said HI! via text, would be interpreted by image readers as a light shade of yellow. The red value would be 72, the green value would be 73, and the blue would be 33.
-![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/5fc6cf7d-ae52-4855-8b1a-dcb3e6ddf425)
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/5fc6cf7d-ae52-4855-8b1a-dcb3e6ddf425)
 
 
 ## Images, Video and Sound

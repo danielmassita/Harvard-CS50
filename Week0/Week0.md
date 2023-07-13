@@ -67,6 +67,90 @@ https://www.youtube.com/live/IDDmrzzB14M
 ## Computational Thinking
 
 - Essentially, computer programming is about taking some input and creating some output - thus solving a problem. What happens in between the input and output, what we could call a black box, is the focus of this course.
+![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/9ac704ab-d794-4ab6-bf79-f2abf5a0bc20)
+- For example, we may need to take attendance for a class. We could use a system called unary to count, one finger at a time. Computers today count using a system called binary. It’s from the term binary digit that we get a familiar term called bit. A bit is a zero or one.
+- Computers only speak in terms of zeros and ones. Zeros represent off. Ones represent on. Computers are millions, and perhaps billions, of transistors that are being turned on and off.
+- If you imagine using a light bulb, a single bulb can only count from zero to one.
+- However, if you were to have three light bulbs, there are more options open to you!
+- Using three light bulbs, the following could represent zero:
+```
+   0 0 0
+```
+- Similarly, the following would represent one:
+```
+  0 0 1
+```
+- By this logic, we could propose that the following equals two:
+```
+  0 1 0
+```
+- Extending this logic further, the following represents three:
+```
+  0 1 1
+```
+- Four would appear as:
+```
+  1 0 0
+```
+- We could, in fact, using only three light bulbs count as high as seven!
+```
+  1 1 1
+```
+- As a heuristic, we could imagine that the following values represent each possible place in our binary digit:
+```
+  4 2 1
+```
+Computers use ‘base-2’ to count. This can be pictured as follows:
+```
+  2^2  2^1  2^0
+  4    2    1
+```
+- Therefore, you could say that it would require three bits (the four’s place, the two’s place, and the one’s place) to represent a number as high as seven.
+- Computers generally use eight bits to represent a number. For example, 00000101 is the number 5 in binary.
+
+
+## Text
+
+- Just as numbers are binary patterns of ones and zeros, letters are represented using ones and zeros too!
+- Since there is an overlap between the ones and zeros that represent numbers and letters, the ASCII standard was created to map specific letters to specific numbers.
+- For example, the letter A was decided to map to the number 65.
+- If you received a text message, the binary under that message might represent the numbers 72, 73, and 33. Mapping these out to ASCII, your message would look as follows:
+``` 
+  H   I   !
+  72  73  33
+```
+- Thank goodness for standards like ASCII that allow us to agree upon these values!
+- Here is an expanded map of ASCII values:
+![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/c9ad2247-cec8-42b3-a3c8-6c4a408972a4)
+
+
+## Emojis
+
+- As time has rolled on, there are more and more ways to communicate via text.
+- Since there were not enough digits in binary to represent all the various characters that could be represented by humans, the Unicode standard expanded the number of bits that can be transmitted and understood by computers.
+- There are emojis that you probably use every day. The following may look familiar to you:
+![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/b3131c7d-be92-4628-b883-8c1c1857593a)
+- Computer scientists faced a challenge when wanting to assign various skin tones to each emoji to allow the communication to be further personalized. In this case, the creators and contributors of emojis decided that the initial bits would be the structure of the emoji itself, followed by skin tone.
+- More and more features are being added to the Unicode standard to represent further characters and emojis.
+- If you wish, you can learn more about Unicode.
+- If you wish, you can learn more about emojis.
+
+
+## RGB
+
+- Red, green, and blue (called RGB) is a combination of three numbers.
+![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/5fc6cf7d-ae52-4855-8b1a-dcb3e6ddf425)
+- Taking our previously used 72, 73, and 33, which said HI! via text, would be interpreted by image readers as a light shade of yellow. The red value would be 72, the green value would be 73, and the blue would be 33.
+![Uploading image.png…]()
+
+
+## Images, Video and Sound
+
+- Images are simply collections of RGB values.
+- Videos are sequences of many images that are stored together, just like a flipbook.
+- Music can be represented through MIDI data.
+
+
 
 
 

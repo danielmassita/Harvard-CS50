@@ -38,7 +38,7 @@ https://www.youtube.com/live/IDDmrzzB14M
 
 - You will be learning this week about Scratch, a visual programming language.
 - Then, in future weeks, you will learn about C. That will look something like this:
-```
+```c
   #include <stdio.h>
 
   int main(void)
@@ -51,7 +51,7 @@ https://www.youtube.com/live/IDDmrzzB14M
 - You will learn about buggy code and what causes computer crashes.
 - You will learn about data structures such as a hash table.
 - Then, we will transition to a new, higher-level language called Python. Your code will look something like this:
-```
+```python
   print("hello, world")
 ```
 - This class will give you a strong understanding of how recent programming languages developed from the earlier ones.

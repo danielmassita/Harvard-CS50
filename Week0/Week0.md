@@ -229,6 +229,53 @@ Computers use ‘base-2’ to count. This can be pictured as follows:
 - Notice that the loop does exactly as the previous program did. However, the problem is simplified by abstracting away the repetition to a block that repeats the code for us.
 - We can even advance this further by using the define block, where you can create your own block (your own function)! Write code as follows:
 - ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/7b292bdf-d87f-4613-9718-d4dd36a4cf7a)
+- Notice that we are defining our own block called meow. The function plays the sound meow, then waits one second. Below that, you can see that when the green flag is clicked, our meow function is repeated three times.
+- We can even provide a way by which the function can take an input n and repeat a number of times:
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/86e337d1-9538-4123-9b2e-d5e0c9f58d14)
+- Notice how n is taken from “meow n times.” n is passed to the meow function through the define block.
+- The cat, by the way, we can call a sprite – a general term used in game programming for an object or character on the screen with which the player will interact.
+
+
+## If
+
+- conditionals are an essential building block of programming, where the program looks to see if a specific condition has been met. If a condition is met, the program does something.
+- To illustrate a conditional, write code as follows:
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/33cb8f04-3f53-4af1-94ea-1c1ffe4b0355)
+- Notice that the forever block is utilized such that the if block is triggered over and over again, such that it can check continuously if the cat is touching the mouse pointer.
+- We can modify our program as follows to integrate video sensing:
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/b9fcbe03-0707-4be2-848e-3ff2be199b30)
+- Remember, programming is often a process of trial and error. If you get frustrated, take time to talk yourself through the problem at hand. What is the specific problem that you are working on right now? What is working? What is not working?
+
+
+## Expanding Your Imagination
+
+- We showed you in this lecture a number of Scratch programs to stoke your imagination.
+- Oscartime is one of David’s own Scratch programs – though the music may haunt him because of the number of hours he listened to it while creating this program. Take a few moments to play through the game yourself.
+- Building Oscartime ourselves, we first add the lamp post.
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/6ac98a98-2720-41e4-80a0-e824a855a754)
+- Then, write code as follows:
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/7ac1047d-c60b-4ada-aa4b-b851db158e00)
+- Notice that moving your mouse over Oscar changes his costume. You can learn more by exploring these code blocks. 
+- Then, modify your code as follow to create a falling piece of trash:
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/927e8bb3-32b1-4bbf-80b5-bb9ff99f8fbb)
+- Notice that the trash’s position on the y-axis always begins at 180. The x position is randomized. While the trash is above the floor, it goes down 3 pixels at a time. You can learn more by exploring these code blocks.
+- Next, modify your code as follows to allow for the possibility of dragging trash.
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/0e46f1f6-4099-4c38-941d-48166cf59b0b)
+- You can learn more by exploring these code blocks.
+- Next, we can implement the scoring variables as follows:
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/1ab73dac-cb18-4acc-b83f-d7b89ae671fc)
+- You can learn more by exploring these code blocks.
+
+
+## Sprite Movement
+
+- Moving away from Oscartime to Ivy’s Hardest Game, we can now imagine how to implement movement within our program.
+- Our program has three main components.
+- First, write code as follows:
+- 
+
+
+
 
 
 

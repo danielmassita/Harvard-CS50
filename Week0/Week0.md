@@ -1,8 +1,9 @@
 # Week 0 Scratch
 Computer Science. Computational Thinking. Problem Solving: Inputs, Outputs. Representation: Unary, Binary, Decimal, ASCII, Unicode, RGB. Abstraction. Algorithms. Running Times. Pseudocode. Scratch: Functions, Arguments, Return Values; Variables; Boolean Expressions, Conditionals; Loops; Events; Threads.
 
-https://www.youtube.com/live/IDDmrzzB14M
 [![Harvard CS 50 Lecture Zero](http://img.youtube.com/vi/IDDmrzzB14M/0.jpg)](http://www.youtube.com/watch?v=IDDmrzzB14M)
+- https://www.youtube.com/live/IDDmrzzB14M
+
 
 # Lecture 0
 

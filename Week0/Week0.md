@@ -2,7 +2,7 @@
 Computer Science. Computational Thinking. Problem Solving: Inputs, Outputs. Representation: Unary, Binary, Decimal, ASCII, Unicode, RGB. Abstraction. Algorithms. Running Times. Pseudocode. Scratch: Functions, Arguments, Return Values; Variables; Boolean Expressions, Conditionals; Loops; Events; Threads.
 
 https://www.youtube.com/live/IDDmrzzB14M
-
+[![Harvard CS 50 Lecture Zero](http://img.youtube.com/vi/IDDmrzzB14M/0.jpg)](http://www.youtube.com/watch?v=IDDmrzzB14M)
 
 # Lecture 0
 
@@ -272,11 +272,45 @@ Computers use ‘base-2’ to count. This can be pictured as follows:
 - Moving away from Oscartime to Ivy’s Hardest Game, we can now imagine how to implement movement within our program.
 - Our program has three main components.
 - First, write code as follows:
-- 
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/7fc4942c-07f1-42cc-a221-514c37f376e7)
+- Notice that when the green flag is clicked, our sprite moves to the center of the stage at coordinates (0,0) and then listens for the keyboard and checks for walls forever.
+- Second, add this second group of code blocks:
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/3cc7f078-86d3-4b06-9f72-634a891abe6b)
+- Notice how we have created a custom listen for keyboard script. For each of our arrow keys on the keyboard, it will move the sprite around the screen.
+- Finally, add this group of code blocks:
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/f6999a50-9bc6-4272-9855-dabb8848f31e)
+- Notice how we also have a custom feel for walls script. When a sprite touches a wall, it moves it back to a safe position – preventing it from walking off the screen.
+- You can learn more by exploring these code blocks.
+- Go try the full game Oscartime.
 
 
+## More Sprites
+
+- Scratch allows for many sprites to be on the screen at once.
+- Adding another sprite, add the following code blocks to your program:
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/f188d2d4-6d8b-4761-aa2d-755273ba5aa4)
+- Notice how the Yale sprite seems to get in the way of the Harvard sprite by moving back and forth. When it bumps into a wall, it turns around until it bumps the wall again. You can learn more by exploring these code blocks.
+- You can even make a sprite follow another sprite. Adding another sprite, add the following code blocks to your program:
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/1ad30913-4adc-4563-bb8f-c4395d58c8d6)
+- Notice how the MIT logo now seems to follow around the Harvard one. You can learn more by exploring these code blocks.
+- Go try the full game Ivy’s Hardest Game.
 
 
+## Summing Up
+
+- In this lesson, you learned how this course sits in the wide world of computer science and programming. You learned…
+```
+    Few students come to this class with prior coding experience!
+    You are not alone! You are part of a community.
+    Problem solving is the essence of the work of computer scientists.
+    This course is not simply about programming – this course will introduce you to a new way of learning that you can apply to almost every area of life.
+    How numbers, text, images, music, and video are understood by computers.
+    The fundamental programming skill of pseudocoding.
+    How abstraction will play a role in your future work in this course.
+    The basic building blocks of programming, including functions, conditionals, loops, and variables.
+    How to build a project in Scratch.
+    See you next time!
+```
 
 
 

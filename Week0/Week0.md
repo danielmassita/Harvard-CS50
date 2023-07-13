@@ -3,9 +3,70 @@ Computer Science. Computational Thinking. Problem Solving: Inputs, Outputs. Repr
 
 https://www.youtube.com/live/IDDmrzzB14M
 
-asdf
+
+# Lecture 0
+
+- Welcome!
+- What’s Ahead
+- Community!
+- Computational Thinking
+- Text
+- Emojis
+- RGB
+- Images, Video and Sound
+- Algorithms
+- Pseudocode and the Basic Building Blocks of Programming
+- Scratch
+- Abstraction
+- If
+- Expanding Your Imagination
+- Sprite Movement
+- More Sprites
+- Summing Up
 
 
+## Welcome!
+
+- This class is about more than computer programming!
+- Indeed, this class is about problem-solving in a way that is exceedingly empowering! You will likely take the problem solving that you learn here will likely be instantly applicable to your work beyond this course and even your career as a whole!
+- However, it will not be easy! You will be “drinking from the firehose” of knowledge during this course. You’ll be amazed at what you will be able to accomplish in the coming weeks.
+- This course is far more about you advancing “you” from “where you are today” than hitting some imagined standard.
+- The most important opening consideration in this course: Give the time you need to learn through this course. Everyone learns differently. If something does not work out well at the start, know that with time you will grow and grow in your skill. 
+
+
+## What’s Ahead
+
+- You will be learning this week about Scratch, a visual programming language.
+- Then, in future weeks, you will learn about C. That will look something like this:
+```
+  #include <stdio.h>
+
+  int main(void)
+  {
+      printf("hello, world\n");
+  }
+```
+- Further, as the weeks progress, you will learn about algorithms.
+- You will learn about memory.
+- You will learn about buggy code and what causes computer crashes.
+- You will learn about data structures such as a hash table.
+- Then, we will transition to a new, higher-level language called Python. Your code will look something like this:
+```
+  print("hello, world")
+```
+- This class will give you a strong understanding of how recent programming languages developed from the earlier ones.
+- We will also be looking at how we can use databases and third-party frameworks to build web applications.
+
+
+## Community!
+
+- You are part of a community of those taking this course at Harvard College, Harvard Extension School, and via edX.org.
+- Puzzle Day and the CS50 Fair
+
+
+## Computational Thinking
+
+- Essentially, computer programming is about taking some input and creating some output - thus solving a problem. What happens in between the input and output, what we could call a black box, is the focus of this course.
 
 
 

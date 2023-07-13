@@ -313,8 +313,9 @@ Computers use ‘base-2’ to count. This can be pictured as follows:
     See you next time!
 ```
 
+___
 
-
+## TRANSCRIPTION
 
 ```
 TRANSCRIPTION

@@ -226,7 +226,9 @@ Computers use ‘base-2’ to count. This can be pictured as follows:
 - Notice that you are doing the same thing over and over again. Indeed, if you see yourself repeatedly coding the same statements, it’s likely the case that you could program more artfully – abstracting away this repetitive code.
 - You can modify your code as follows:
 - ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/159fbb53-f34c-4229-a8e2-f3e28731fdd0)
-- 
+- Notice that the loop does exactly as the previous program did. However, the problem is simplified by abstracting away the repetition to a block that repeats the code for us.
+- We can even advance this further by using the define block, where you can create your own block (your own function)! Write code as follows:
+- ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/7b292bdf-d87f-4613-9718-d4dd36a4cf7a)
 
 
 

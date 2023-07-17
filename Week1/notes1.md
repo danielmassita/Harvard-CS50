@@ -52,6 +52,20 @@ int main(void)
     printf("hello, world\n");
 }
 ```
+- Note that every single character above serves a purpose. If you type it incorrectly, the program will not run.
+- Clicking back in the terminal window, you can compile your code by executing make hello. Notice that we are omitting .c. make is a compiler that will look for our hello.c file and turn it into a program called hello. If executing this command results in no errors, you can proceed. If not, double-check your code to ensure it matches the above.
+- Now, type ./hello and your program will execute saying hello, world.
+- Now, open the file explorer on the left. You will notice that there is now both a file called hello.c and another file called hello. hello.c is able to be read by the compiler: It’s where your code is stored. hello is an executable file that you can run, but cannot be read by the compiler.
+- Let’s look at our code more carefully:
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    printf("hello, world\n");
+}
+```
+- Notice that our code is highlighted using syntax highlighting.
 
 
 

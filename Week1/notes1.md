@@ -22,6 +22,7 @@ ___
 - Operators and Types
 - Summing Up
 
+
 ___
 
 ## Welcome!
@@ -34,8 +35,6 @@ ___
 - Code can be evaluated upon three axes. First, correctness refers to “does the code run as intended?” Second, design refers to “how well is the code designed?” Finally, style refers to “how aesthetically pleasing and consistent is the code?”
 
 
-___ 
-
 ## Hello World
 
 - The compiler that is utilized for this course is Visual Studio Code, affectionately referred to as , which can be accessed via that same url, or simply as *VS Code.*
@@ -43,9 +42,16 @@ ___
 - You can open VS Code at cs50.dev.
 - The compiler can be divided into a number of regions:
 - ![image](https://github.com/danielmassita/Harvard-CS50/assets/111195175/d901c1f6-9e5e-40ad-8526-f12c1f292484)
-- 
+- Notice that there is a file explorer on the left side where you can find your files. Further, notice that there is a region in the middle called a text editor where you can edit your program. Finally, there is a command line interface, known as a CLI, command line, or terminal window where we can send commands to the computer in the cloud.
+- We can build your first program in C by typing code hello.c into the terminal window. Notice that we deliberately lowercased the entire filename and included the .c extension. Then, in the text editor that appears, write code as follows:
+```c
+#include <stdio.h>
 
-
+int main(void)
+{
+    printf("hello, world\n");
+}
+```
 
 
 

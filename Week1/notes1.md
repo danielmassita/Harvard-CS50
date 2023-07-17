@@ -32,12 +32,15 @@ ___
 - Recall that machines only understand binary. Where humans write source code, a list of instructions for the computer that is human readable, machines only understand what we can now call machine code. This machine code is a pattern of ones and zeros that produces a desired effect.
 - It turns out that we can convert source code into machine code using a very special piece of software called a compiler. Today, we will be introducing you to a compiler that will allow you to convert source code in the programming language C into machine code.
 - Today, in addition to learning about how to code, you will be learning about how to write good code.
-- Code can be evaluated upon three axes. First, correctness refers to “does the code run as intended?” Second, design refers to “how well is the code designed?” Finally, style refers to “how aesthetically pleasing and consistent is the code?”
+- Code can be evaluated upon three axes. 
+1. First, correctness refers to “does the code run as intended?” 
+2. Second, design refers to “how well is the code designed?” 
+3. Finally, style refers to “how aesthetically pleasing and consistent is the code?”
 
 
 ## Hello World
 
-- The compiler that is utilized for this course is Visual Studio Code, affectionately referred to as , which can be accessed via that same url, or simply as *VS Code.*
+- The compiler that is utilized for this course is Visual Studio Code, affectionately referred to as, which can be accessed via that same url, or simply as *VS Code*.
 - One of the most important reasons we utilize VS Code is that it has all the software required for the course already pre-loaded on it. This course and the instructions herein were designed with VS Code in mind. Best always to utilize VS Code for assignments in this course.
 - You can open VS Code at cs50.dev.
 - The compiler can be divided into a number of regions:
